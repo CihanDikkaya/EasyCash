@@ -11,7 +11,7 @@ namespace EasyCash.BusinessLayer.Concrete
 {
     public class CustomerAccountProcessManager : ICustomerAccountProcessService
     {
-        private readonly ICustomerAccountProcessDal _customerAccountProcessDal
+        private readonly ICustomerAccountProcessDal _customerAccountProcessDal;
         public void TDelete(CustomerAccountProcess t)
         {
           _customerAccountProcessDal.Delete(t);
