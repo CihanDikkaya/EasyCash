@@ -25,7 +25,7 @@ namespace EasyCash.PresentationLayer.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser appUser = new AppUser()
+				AppUser appUser = new AppUser()
                 {
                     UserName = appUserRegisterDTO.Username,
                     Name = appUserRegisterDTO.Name,
