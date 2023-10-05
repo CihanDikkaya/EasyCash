@@ -61,7 +61,7 @@ namespace EasyCash.PresentationLayer.Controllers
 
 
 
-
+					TempData["Mail"] = appUserRegisterDTO.Email;
 
 
 
