@@ -212,8 +212,4 @@
     <ProjectReference Include="..\EasyCash.EntityLayer\EasyCash.EntityLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Shared\" />
-  </ItemGroup>
-
 </Project>
