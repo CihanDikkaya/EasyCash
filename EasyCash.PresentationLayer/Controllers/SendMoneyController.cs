@@ -34,17 +34,27 @@ namespace EasyCash.PresentationLayer.Controllers
                 (x => x.CustomerAccountNumber == sendMoneyForCustomerAccountProcessDTO.ReciverAccountNumber)
                 .Select(s => s.CustomerAccountID).FirstOrDefault();
 
-            sendMoneyForCustomerAccountProcessDTO.SenderID = user.Id;
-            sendMoneyForCustomerAccountProcessDTO.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            sendMoneyForCustomerAccountProcessDTO.ProcessType = "Havale";
-            sendMoneyForCustomerAccountProcessDTO.ReceiverID = receiverAccountNumberID;
 
+            var senderAccountNumberID = context.CustomerAccounts.Where(x => x.AppUserID == user.Id).Where(ı => ı.CustomerAccountCurrency == "Türk Lirası")
+                .Select(g => g.CustomerAccountID).FirstOrDefault();
 
+            var val = new CustomerAccountProcess();
 
+            val.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            val.SenderID = senderAccountNumberID;
+            val.ProcessType = "Havale";
+            val.ReceiverID = receiverAccountNumberID;
+            val.Amount = sendMoneyForCustomerAccountProcessDTO.Amount;
+
+            _customerAccountProcessService.TInsert(val);
 
 
 
             return RedirectToAction("Index", "Deneme");
         }
+
+
+
+
     }
 }
