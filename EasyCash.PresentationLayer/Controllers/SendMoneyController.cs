@@ -19,8 +19,9 @@ namespace EasyCash.PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string mycurrency)
         {
+            ViewBag.currency = mycurrency;
             return View();
         }
 
@@ -45,6 +46,7 @@ namespace EasyCash.PresentationLayer.Controllers
             val.ProcessType = "Havale";
             val.ReceiverID = receiverAccountNumberID;
             val.Amount = sendMoneyForCustomerAccountProcessDTO.Amount;
+            val.Description = sendMoneyForCustomerAccountProcessDTO.Description;
 
             _customerAccountProcessService.TInsert(val);
 
