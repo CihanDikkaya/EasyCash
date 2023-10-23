@@ -20,7 +20,7 @@ namespace EasyCash.BusinessLayer.Concrete
 
         public void TDelete(CustomerAccountProcess t)
         {
-          _customerAccountProcessDal.Delete(t);
+            _customerAccountProcessDal.Delete(t);
         }
 
         public CustomerAccountProcess TGetByID(int id)
@@ -35,7 +35,12 @@ namespace EasyCash.BusinessLayer.Concrete
 
         public void TInsert(CustomerAccountProcess t)
         {
-           _customerAccountProcessDal.Insert(t);
+            _customerAccountProcessDal.Insert(t);
+        }
+
+        public List<CustomerAccountProcess> TMyLastProcess(int id)
+        {
+            return _customerAccountProcessDal.MyLastProcess(id);
         }
 
         public void TUpdate(CustomerAccountProcess t)

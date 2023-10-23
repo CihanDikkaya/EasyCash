@@ -9,6 +9,6 @@ namespace EasyCash.DataAccessLayer.Abstract
 {
     public interface ICustomerAccountDal : IGenericDal<CustomerAccount>
     {
-
+        List<CustomerAccount> GetCustomerAccountsList(int id);
     }
 }
